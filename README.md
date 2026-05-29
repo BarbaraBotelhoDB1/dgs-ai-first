@@ -5,10 +5,10 @@ Papel: **QA**. Entregas organizadas por cenário, uma branch por cenário (`Cena
 
 ## Estrutura
 
-| Cenário | Branch | Pasta | Status |
-|---|---|---|---|
-| 1 — Entendimento e Contexto (Fundamentos, Prompt, Contexto, RAG) | `Cenario1` | [cenario1/](cenario1/) | em andamento |
-| 2 — _a definir_ | `Cenario2` | — | aguardando liberação |
-| 3 — _a definir_ | `Cenario3` | — | aguardando liberação |
+| Cenário                                                          | Branch     | Pasta                  | Status               |
+| ---------------------------------------------------------------- | ---------- | ---------------------- | -------------------- |
+| 1 — Entendimento e Contexto (Fundamentos, Prompt, Contexto, RAG) | `Cenario1` | [cenario1/](cenario1/) | em andamento         |
+| 2 — _a definir_                                                  | `Cenario2` | —                      | aguardando liberação |
+| 3 — _a definir_                                                  | `Cenario3` | —                      | aguardando liberação |
 
 Materiais de apoio (cenário-âncora NovaTech, anexos A e B) ficam em `Prática 1/`.
