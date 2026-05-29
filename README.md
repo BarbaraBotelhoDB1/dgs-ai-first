@@ -7,7 +7,7 @@ Papel: **QA**. Entregas organizadas por cenário, uma branch por cenário (`Cena
 
 | Cenário                                                          | Branch     | Pasta                  | Status               |
 | ---------------------------------------------------------------- | ---------- | ---------------------- | -------------------- |
-| 1 — Entendimento e Contexto (Fundamentos, Prompt, Contexto, RAG) | `Cenario1` | [cenario1/](cenario1/) | em andamento         |
+| 1 — Entendimento e Contexto (Fundamentos, Prompt, Contexto, RAG) | `Cenario1` | [cenario1/](cenario1/) | finalizado       |
 | 2 — _a definir_                                                  | `Cenario2` | —                      | aguardando liberação |
 | 3 — _a definir_                                                  | `Cenario3` | —                      | aguardando liberação |
 
