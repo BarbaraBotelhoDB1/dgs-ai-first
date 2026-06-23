@@ -1,0 +1,22 @@
+{
+  "name": "exercicio-2.2-sdd-query-endpoint",
+  "version": "1.0.0",
+  "description": "- plan.md: plano técnico de referência para o query endpoint.\r - tasks.md: decomposição atômica do plano em tasks executáveis.\r - src/functions/query/index.ts: implementação da TQ-001 (endpoint base + validação).\r - src/functions/query/schemas.ts: schemas Zod de request/erro.\r - revisao-critica-copilot.md: avaliação crítica de pontos a ajustar antes de code review.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@azure/functions": "^4.16.1",
+    "pino": "^10.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3"
+  }
+}

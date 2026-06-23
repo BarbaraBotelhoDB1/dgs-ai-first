@@ -1,0 +1,74 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/spec/main/schema/mcp-config.schema.json",
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "Acesso ao repositório db1/novatech-assistant. Escopo: repo (read/write). Sem acesso a outros repos da org.",
+      "allowedTools": [
+        "create_pull_request",
+        "list_files",
+        "read_file",
+        "create_branch",
+        "add_comment"
+      ],
+      "allowedResources": ["repository_contents", "pull_requests_open"]
+    },
+    "azure-ai-search": {
+      "command": "node",
+      "args": ["./tools/mcp-servers/azure-ai-search/index.js"],
+      "env": {
+        "AZURE_SEARCH_ENDPOINT": "${AZURE_SEARCH_ENDPOINT}",
+        "AZURE_SEARCH_API_KEY": "${AZURE_SEARCH_QUERY_KEY}",
+        "AZURE_SEARCH_INDEX_NAME": "novatech-documents"
+      },
+      "description": "Consulta ao índice de documentos da NovaTech. Role: Search Index Data Reader (somente leitura).",
+      "allowedTools": ["query_index", "get_index_stats"],
+      "allowedResources": ["index_schema", "sample_chunks"]
+    },
+    "azure-openai": {
+      "command": "node",
+      "args": ["./tools/mcp-servers/azure-openai/index.js"],
+      "env": {
+        "AZURE_OPENAI_ENDPOINT": "${AZURE_OPENAI_ENDPOINT}",
+        "AZURE_OPENAI_API_KEY": "${AZURE_OPENAI_API_KEY}",
+        "AZURE_OPENAI_DEPLOYMENT": "gpt-4o",
+        "AZURE_OPENAI_EMBEDDING_DEPLOYMENT": "text-embedding-3-small"
+      },
+      "description": "Chamadas ao GPT-4o e embeddings. Role: Cognitive Services OpenAI User. Sem permissão de criar deployments.",
+      "allowedTools": ["chat_completion", "create_embedding"],
+      "allowedResources": ["deployed_models"]
+    },
+    "azure-devops": {
+      "command": "npx",
+      "args": ["-y", "@azure/azure-devops-mcp"],
+      "env": {
+        "AZURE_DEVOPS_ORG_URL": "https://dev.azure.com/db1group",
+        "AZURE_DEVOPS_PROJECT": "NovaTech",
+        "AZURE_DEVOPS_TOKEN": "${AZURE_DEVOPS_PAT}"
+      },
+      "description": "Leitura e criação de work items no board NovaTech. Scope: vso.work_write. Sem acesso a pipelines.",
+      "allowedTools": [
+        "create_work_item",
+        "update_work_item",
+        "list_work_items"
+      ],
+      "allowedResources": ["current_sprint", "backlog"]
+    },
+    "confluence": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-confluence"],
+      "env": {
+        "CONFLUENCE_URL": "https://novatech.atlassian.net",
+        "CONFLUENCE_USERNAME": "${CONFLUENCE_SERVICE_ACCOUNT}",
+        "CONFLUENCE_API_TOKEN": "${CONFLUENCE_API_TOKEN}",
+        "CONFLUENCE_SPACE_KEY": "NOVATECH"
+      },
+      "description": "Leitura de documentação de negócio da NovaTech. SOMENTE READ-ONLY. Espaço restrito: NOVATECH. Sem acesso a outros espaços DB1.",
+      "allowedResources": ["page_content", "space_pages", "page_attachments"]
+    }
+  }
+}
